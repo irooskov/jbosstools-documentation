@@ -4,31 +4,80 @@
         Enhancements and fixed issues in version 6.0.0
     </title>
 	<variablelist>
-		<!-- JBIDE-12934 -->
+		<!-- JBIDE-13095 -->
 		<varlistentry>
 		<term>
-			<ulink url="https://issues.jboss.org/jira/browse/JBIDE-12934">JBIDE-12934</ulink>
+			<ulink url="https://issues.jboss.org/jira/browse/JBIDE-13095">JBIDE-13095</ulink>
 		</term>
 		<listitem>
 			<para>
-				A bug existed that would cause an error state to still display at the endpoint node of a JAX-RS Resource Method. This was viewable in the project explorer view. Correct behaviour has been implemented for this release, displaying warning and error markers at the endpoint and JAX-RS REST Web Services node levels.
+				When adding SSH public keys to OpenShift, they are verified to ensure the matching private key is listed in Eclipse SSH preferences. Previously when performing this task on a Windows operating system, a user would be warned in error when adding default rsa or dsa keys (id_dsa, id_rsa). This has been corrected so that the false alert is not generated or displayed.
 			</para>
 		</listitem>
 	</varlistentry>
 	
-	<!-- JBIDE-12842 -->
+	<!-- JBIDE-13090 -->
 	<varlistentry>
 	<term>
-		<ulink url="https://issues.jboss.org/jira/browse/JBIDE-12842">JBIDE-12842</ulink>
+		<ulink url="https://issues.jboss.org/jira/browse/JBIDE-13090">JBIDE-13090</ulink>
 	</term>
 	<listitem>
 		<para>
-			Fuse previously included Hibernate Tools runtime JAR files that were created based on a snapshot rather than an official build. These files have now been replaced with official builds. Users should not notice any functionality changes based on this.
+			When attempting to retrieve information on the ports used by an OpenShift application, the PortForwarding dialog could return an empty list without providing an explanation, leading to user confusion. The OpenShift PortForwarding dialog has now been updated to inform a user that the application may not be runinng if no port is retrieved from server.
 		</para>
 	</listitem>
 </varlistentry>
 
-
+   <!-- JBIDE-13087 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-13087">JBIDE-13087</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   The OpenShift platform was upgraded to use MongoDB 2.2. For this release of the associated tooling, MongoDB 2.2 is now fully supported.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-13069 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-13069">JBIDE-13069</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   OpenShift changed the location of its log files, meaning the tooling had to be updated to compensate for this. The Tail Files action has been updated to present a dialog with the command for listing the log files. A user can modify this command now and in the future to ensure log files are correctly retrieved.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   
+   <!-- JBIDE-12934 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12934">JBIDE-12934</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   A bug existed that would cause an error state to still display at the endpoint node of a JAX-RS Resource Method. This was viewable in the project explorer view. Correct behaviour has been implemented for this release, displaying warning and error markers at the endpoint and JAX-RS REST Web Services node levels.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-12842 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12842">JBIDE-12842</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   Fuse previously included Hibernate Tools runtime JAR files that were created based on a snapshot rather than an official build. These files have now been replaced with official builds. Users should not notice any functionality changes based on this.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   
    <!-- JBIDE-12793 -->
    <varlistentry>
    <term>
@@ -77,6 +126,18 @@
    </listitem>
    </varlistentry>
    
+   <!-- JBIDE-12650 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12650">JBIDE-12650</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   A new feature has been added that enhances the server port configuration for JBoss Enterprise Application Platform 6 and JBoss Application Server 7.1. This enhancement accounts for a configured port-offset and displays this information to a user through the server configuration display.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
    
    <!-- JBIDE-12633 -->
    <varlistentry>
@@ -91,14 +152,48 @@
    </varlistentry>
    
    
-   <!-- JBIDE-12551 -->
+   
+   <!-- JBIDE-12488 -->
    <varlistentry>
    <term>
-	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12551">JBIDE-12551</ulink>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12488">JBIDE-12488</ulink>
    </term>
    <listitem>
 	   <para>
-		   When pressing the Reset button within the Convert to maven dependencies wizard, the dependencies lookup was still not reset. The issue has been correct by replacing the Reset button with a Identify Dependencies button. Through this new button a user can relaunch dependency identification after updating the Maven repositories list within settings.xml, or enabling new remote nexus repositories.
+		   If no JAX-RS application had been defined, the JAX-RS endpoints would be unreachable and if multiple JAX-RS applications were defined it may have lead to user errors. Under these circumstances no warning was issued, leaving a user with no knowledge of the error. The Web Services tooling has been updated to now include a warning if either of the mentioned circumstances occurs.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-12485 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12485">JBIDE-12485</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   org.jboss.tools.common.validation is now used to validate the JAX-RS metamodel. Settings to configure the problem level (i.e. error, warning or ignore) are also provided for each type of problem the validation can detect.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-12413 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12413">JBIDE-12413</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   New annotation has been added that is necessary for a JAX-RS HTTP method to be valid:
+	   </para>
+	   <para>
+		   @Target({ElementType.METHOD})
+	   </para>
+	   <para>
+		   @Retention(RetentionPolicy.RUNTIME)
+	   </para>
+	   <para>
+		   If there are any annotations missing, validation messages will appear at the @HttpMethod annotation level.
 	   </para>
    </listitem>
    </varlistentry>
@@ -115,6 +210,116 @@
    </listitem>
    </varlistentry>
    
+   <!-- JBIDE-12380 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12380">JBIDE-12380</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   If the user had started the OpenShift tooling with a blank user account (no domain or applications), the user could not import applications that they had created outside of the tooling environment. This occurred because the tooling failed to refresh the user account and discover the new applications. The issue has been corrected for this release, enabling for discovery of applications created outside of the tooling environment.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-12303 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12303">JBIDE-12303</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   The, Add @SuppressWarnings, quickfix has been updated with a new feature that allows it to work for temporary annotations.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-12295 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12295">JBIDE-12295</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   Open-on for expression language variables has been added for: &lt;ui:param/&gt;. This new functionality is also extended to all parameters with the same name.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   
+   <!-- JBIDE-12241 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12241">JBIDE-12241</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   When creating or importing an OpenShift application to the workspace, the user must provide a destination folder for the wizard to clone to. If the destination folder already had a project with the same name, the wizard would not complete. Even after moving or removing the conflicting folder from outside the tooling, the wizard would not allow a user to clone to the location. This issue has now been fixed and the wizard will check the folder again for any conflicts once a user switches in and out of the folder, from the wizard.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   
+   <!-- JBIDE-12232 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12232">JBIDE-12232</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   The Quick Fix, Configure Problem Severity, can now be utilized with temporary annotations.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-12199 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12199">JBIDE-12199</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   A new feature has been added that allows for bean types to be validated with a normal scope.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-12191 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12191">JBIDE-12191</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   BrowserSim would display large vertical and horizontal scrollbars, making the screen area seem smaller than on actual devices. The themes have been updated for this release to include small scrollbars that take up less room on the simulated device screen.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-12187 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12187">JBIDE-12187</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   The OpenShift Java Client library  is now available as a Maven artifact from Maven Central.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-12177 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12177">JBIDE-12177</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   The feature to auto-complete code tags was broken in the Visual Editor. When attempting to auto-complete a code tag, invalid code would be generated. This has been corrected by modifying the content assist file XmlTagCompletionProposalComputer.java to ensure partner code tags are generated correctly when using auto-completion.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
    <!-- JBIDE-12166 -->
    <varlistentry>
    <term>
@@ -127,6 +332,67 @@
    </listitem>
    </varlistentry>
    
+   <!-- JBIDE-12158 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12158">JBIDE-12158</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   An issue existed when creating a Dynamic Web Project and modifying the project to include the JBoss Core Portlet facet to the project. The portlet-api library was not detected in the target runtime, forcing the user to manually specify it via the user library. This has been corrected by adding the option, Portlet Target Runtime Provider, to the combo-box on the JBoss Portlet Capabilities wizard page.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-12146 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12146">JBIDE-12146</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   The OpenShift tools server adapter wizard would not allow a user to create an adapter for a project if the OpenShift git repository was not: origin. For this release the tooling has been updated to fix this issue, allowing for the remote name to be something other than: origin.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   
+   <!-- JBIDE-12111 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12111">JBIDE-12111</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   The version of Java to be used was hard coded in the pom.xml file of Maven projects. This caused errors when adding Maven configuration to a Seam 2.3 project since Maven projects were created to use Java 1.5, however Seam 2.3 requires Java 1.6. Maven tooling has been updated to allow the maven-compiler-plugin settings that are in the parent project to be dynamically inferred from the converted web project's original settings. This ensures the correct Java version is retained when Maven integration is added to an existing project.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-12071 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12071">JBIDE-12071</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   Previously, when a user performed a drag-and-drop action to publish a project it was ignored. This occurred because the code to publish a project only accepted direct user-initiated actions and not those considered to be a shell action. The ExpressPublishMethod.java and ExpressBehaviour.java files have been updated to handle shell actions correctly. As a result, incremental publishes initiated by the user are now also handled correctly.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-12046 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-12046">JBIDE-12046</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   When a user tried to start or deploy to a remote server that was no longer reachable, various errors would be returned, however no adequate description of the issue was communicated. This issue has been resolved by returning a descriptive error when the remote server is unreachable and checking for file system responsiveness before attempting to publish.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
    <!-- JBIDE-11912 -->
    <varlistentry>
    <term>
@@ -135,6 +401,43 @@
    <listitem>
 	   <para>
 		   A user can now manage their SSH public keys that are on the OpenShift server. You are now able to create and upload new keys, and remove existing keys. The SSH keys wizard is available through the context menu of OpenShift Explorer and when he's creating or importing an OpenShift application. The page dedicated to the git clone settings holds a link to the SSH preferences and the SSH keys wizard.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   
+   <!-- JBIDE-11394 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-11394">JBIDE-11394</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   Projects with a Hibernate JPA configuration can now have their persistence.xml and -ds.xml files generated based on DTP connection information.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-10738 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-10738">JBIDE-10738</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   Validation that occurs as-you-type has been added for expression language in Java, XHTML, JSP and XML files.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
+   <!-- JBIDE-10611 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-10611">JBIDE-10611</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   Validation that occurs as-you-type has been added for context dependency injection.
 	   </para>
    </listitem>
    </varlistentry>
@@ -154,17 +457,65 @@
    </listitem>
    </varlistentry>
    
+   <!-- JBIDE-9535 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-9535">JBIDE-9535</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   A new feature has been added that allows for Hibernate tooling to take into account the parameters: hibernate.default_schema and hibernate.default_catalog, when validating the existence of a table.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
    <!-- JBIDE-9443 -->
    <varlistentry>
-      <term><ulink url="https://issues.jboss.org/jira/browse/JBIDE-9443">JBIDE-9443</ulink></term>
-      <listitem>
-         <para>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-9443">JBIDE-9443</ulink>
+   </term>
+   <listitem>
+	   <para>
          A new wizard called New Service Provider Class has been added for the creation of service implementations. Through the wizard a user can create a Service Provider Java class for a selected Service Type.
          </para>
       </listitem>
    </varlistentry>
 
+   <!-- JBIDE-8973 -->
+   <varlistentry>
+      <term><ulink url="https://issues.jboss.org/jira/browse/JBIDE-8973">JBIDE-8973</ulink></term>
+      <listitem>
+         <para>
+         A new feature has been added that assists users in converting a Java project to Maven. After selecting the project's Maven coordinate, a new wizard will display that attempts to identify all the project's classpath entries and their equivalent Maven dependencies. The user can then decide on the dependencies that will be added to the generated Maven pom.xml file.
+         </para>
+         <para>
+         Dependencies can be edited within the wizard by double-clicking on the dependency, opening a dialog page. After all changes have been made and needed dependencies are selected, a user can select to delete all classpath entries from the project, as the Maven Dependencies Library will provide all the required classpath libraries after the conversion.
+         </para>
+      </listitem>
+   </varlistentry>
 
+   <!-- JBIDE-8631 -->
+   <varlistentry>
+      <term><ulink url="https://issues.jboss.org/jira/browse/JBIDE-8631">JBIDE-8631</ulink></term>
+      <listitem>
+         <para>
+         The Visual Page Editor preference page has been updated with a new feature that allows a user to select the border color for visible and hidden elements.
+         </para>
+      </listitem>
+   </varlistentry>
+
+
+
+
+   <!-- JBIDE-8512 -->
+   <varlistentry>
+      <term><ulink url="https://issues.jboss.org/jira/browse/JBIDE-8512">JBIDE-8512</ulink></term>
+      <listitem>
+         <para>
+         Type completion proposals and TypeDefContainer support has been added as new features to Hibernate BasicMapping.
+         </para>
+      </listitem>
+   </varlistentry>
 
 
    <!-- JBIDE-7996 -->
@@ -177,7 +528,30 @@
       </listitem>
    </varlistentry>
 
+
+   <!-- JBIDE-6135 -->
+   <varlistentry>
+      <term><ulink url="https://issues.jboss.org/jira/browse/JBIDE-6135">JBIDE-6135</ulink></term>
+      <listitem>
+         <para>
+         JSF expression language (EL) validation would fail for EL that was valid. The AbstractELCompletionEngine.java file has been updated to ensure this issue does not occur in this release.
+         </para>
+      </listitem>
+   </varlistentry>
+
+   <!-- JBIDE-3526 -->
+   <varlistentry>
+      <term><ulink url="https://issues.jboss.org/jira/browse/JBIDE-3526">JBIDE-3526</ulink></term>
+      <listitem>
+         <para>
+         Code assistance, validation and hyperlinks are now provided for expression language variables that come from: &lt;ui:param/&gt;.
+         </para>
+      </listitem>
+   </varlistentry>
+
 </variablelist>
+
+
 
 
 </section>
