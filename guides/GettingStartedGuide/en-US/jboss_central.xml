@@ -1,7 +1,7 @@
 <chapter>
 	<title>JBoss Central</title>
 	<para>
-		When viewing the workbench for the first time you will be greated with <firstterm>JBoss Central</firstterm>. JBoss Central assists you in getting started and keeps you up to date with JBoss technologies.
+		When viewing the workbench for the first time you will be greeted with <firstterm>JBoss Central</firstterm>. JBoss Central assists you in getting started and keeps you up to date with JBoss technologies.
 	</para>
 	<figure>
 		<title>JBoss Central</title>
@@ -14,7 +14,7 @@
 	<section>
 		<title>Getting Started with JBoss Central</title>
 		<para>
-			The <guilabel>Getting Started</guilabel> tab of JBoss Central is the first tab you will see, and is setup as a functional starting point for developers.
+			The <guilabel>Getting Started</guilabel> tab of JBoss Central is the first tab you will see. It is set up as a functional starting point for developers.
 		</para>
 		<para>
 			At the top of the tab is a search box. By clicking the down arrow to the left you can select to perform a search on either the <guimenuitem>Red Hat Customer Portal</guimenuitem> or the <guimenuitem>JBoss Community</guimenuitem>.
@@ -84,7 +84,7 @@
 			</mediaobject>
 		</figure>
 		<para>
-			For an in-depth look into the installation of project examples go to <xref linkend="jboss_central-project_examples-indepth" />.
+			For an in-depth look into the installation of project examples see <xref linkend="jboss_central-project_examples-indepth" />.
 		</para>
 		<para>
 			You can also download other examples and install and set runtime preferences through the <guilabel>Project Examples</guilabel> section by using the five buttons at the top-right. The first button <inlinemediaobject>
@@ -214,7 +214,7 @@
 				<textobject>
 					<phrase>Install</phrase>
 				</textobject>
-			</inlinemediaobject> button at the bottom left of the tab window. A screen will then appear offering you the option of deselecting a part of the component if you wish. 
+			</inlinemediaobject> button at the bottom left of the tab window. A window will then open offering you the option of deselecting a part of the component if you wish. 
 		</para>
 		<figure>
 			<title>Component selection</title>
@@ -272,7 +272,7 @@
 			</mediaobject>
 		</figure>
 		<para>
-			Once installation is complete, restart JBoss Developer Studio by pressing the <guibutton>Restart Now</guibutton> button that appears. 
+			Once installation is complete, restart JBoss Developer Studio by pressing the <guibutton>Restart Now</guibutton> button in the window that opens. 
 		</para>
 		<figure>
 		<title>
