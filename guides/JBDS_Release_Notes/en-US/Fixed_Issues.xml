@@ -52,6 +52,18 @@
    </listitem>
    </varlistentry>
    
+   <!-- JBIDE-13066 -->
+   <varlistentry>
+   <term>
+	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-13066">JBIDE-13066</ulink>
+   </term>
+   <listitem>
+	   <para>
+		   When adding cartridges an OpenShift application the tooling checks that requirements are met and if any conflicts exist, suggesting to add or remove cartridges based on the checks. These suggestions can now be ignored, though errors may occur. The checks now also rely only on the cartridge names, ignoring the versions. This makes sure the tooling will not break when OpenShift upgrades cartridge versions.
+	   </para>
+   </listitem>
+   </varlistentry>
+   
    
    <!-- JBIDE-12934 -->
    <varlistentry>
@@ -474,8 +486,8 @@
    <term>
 	   <ulink url="https://issues.jboss.org/jira/browse/JBIDE-9443">JBIDE-9443</ulink>
    </term>
-   <listitem>
-	   <para>
+      <listitem>
+         <para>
          A new wizard called New Service Provider Class has been added for the creation of service implementations. Through the wizard a user can create a Service Provider Java class for a selected Service Type.
          </para>
       </listitem>
@@ -550,6 +562,8 @@
    </varlistentry>
 
 </variablelist>
+
+
 
 
 
